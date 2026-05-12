@@ -1,48 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		
-		<meta charset="UTF-8">
-		<title>Jon Janego</title>
-		<base target='_blank' />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jon Janego</title>
+  <meta name="description" content="Jon Janego — Product Manager, Chicago">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-		<link type="text/css" rel="stylesheet" media="screen" href="./css/baseline.compress.css">
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
- 		<script type="text/javascript" src="scripts/html5.js"></script>
-		<style>
-			#page					{ margin: 0 auto 36px auto; }
-			#.layout-grid			{ background-image: url(images/baseline+column.png); background-repeat: repeat; background-position: 0 1px; border-bottom: solid 1px #CEECF5; }
-			@media only screen and (max-device-width:480px) 
-		</style>
-	</head>
+    :root {
+      --bg: #0d1117;
+      --bg-surface: #161b22;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f6feb33;
+      --border: #30363d;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', Consolas, monospace;
+    }
 
-	<body class="page-main">
-		<header id="buffer">
-				
-		</header>
-		<div id="page">
-			<div class="full layout-grid">
-				<header class="column width4">
-					<h1>Jon Janego</h1>
-					<hr>
-				</header>
-				<div class="column width4">
-					<section class="column width3 first">
-						<h3>About Me</h3>
-						<p>I live in Chicago, and have been working as a Product Manager for much of my career, supporting software developers to build secure and scalable apps.</p>
-						<p>I am an avid reader, a keen observer of technology, and am generally interested in long-term trends in society and current events.  I also enjoy lifting heavy weights and running slowly for long distances.</p>
-						<p>In the (unlikely) event that you're here, this website provides a beachhead to the rest of my online presence - I'm pretty easy to find online (if in doubt, search for @jonjanego), but have provided some links to my most frequent locations.</p>						
-					</section>
-					<aside class="column width1">
-						<h3>Around the Internet</h3>
-						<ul>
-							<li><a href="https://twitter.com/#!/jonjanego">Twitter</a>
-							<li><a href="http://www.linkedin.com/in/jonjanego">LinkedIn</a>
-					</ul>
-					</aside>
-				</div>
-			</div>
-			
-		</div>
-	</body>
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-mono);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 0.5rem;
+    }
+
+    .site-header .tagline {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .prompt {
+      color: var(--accent);
+      user-select: none;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-surface);
+      overflow: hidden;
+    }
+
+    .section summary {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e6edf3;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.15s;
+    }
+
+    .section summary:hover {
+      background: var(--accent-dim);
+    }
+
+    .section summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .section summary::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 0.75rem;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+
+    .section details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .section .content {
+      padding: 0 1.25rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+
+    .section .content p {
+      margin-bottom: 1rem;
+    }
+
+    .section .content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Lists ── */
+    .section .content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section .content ul li {
+      padding: 0.25rem 0;
+      color: var(--text);
+    }
+
+    .section .content ul li::before {
+      content: '—';
+      color: var(--text-muted);
+      margin-right: 0.75rem;
+    }
+
+    /* ── Links ── */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Links Section ── */
+    .link-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .link-list li {
+      padding: 0.35rem 0;
+    }
+
+    .link-list li::before {
+      content: '→';
+      color: var(--text-muted);
+      margin-right: 0.75rem;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .site-header h1 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="site-header">
+      <h1><span class="prompt">~</span> Jon Janego</h1>
+      <p class="tagline">Product Manager · Chicago</p>
+    </header>
+
+    <main>
+
+      <div class="section">
+        <details open>
+          <summary>About</summary>
+          <div class="content">
+            <p>I live in Chicago and have spent much of my career as a Product Manager, supporting software developers building secure and scalable applications.</p>
+            <p>Outside of work, I'm an avid reader, a keen observer of technology, and generally interested in long-term trends in society and current events. I also enjoy lifting heavy weights and running slowly for long distances.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="section">
+        <details>
+          <summary>What I'm Focused On</summary>
+          <div class="content">
+            <p>This section is a snapshot of what I'm currently working on or thinking about. Updated occasionally.</p>
+            <ul>
+              <li>Building developer platforms and tools</li>
+              <li>Exploring how AI is changing the product development process</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="section">
+        <details>
+          <summary>Professional Interests</summary>
+          <div class="content">
+            <ul>
+              <li>Developer experience and platform engineering</li>
+              <li>Security and identity</li>
+              <li>Data infrastructure</li>
+              <li>AI/ML in production systems</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="section">
+        <details>
+          <summary>Elsewhere</summary>
+          <div class="content">
+            <ul class="link-list">
+              <li><a href="https://www.linkedin.com/in/jonjanego" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://github.com/jonjanego" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <p><span class="prompt">$</span> echo "last updated: may 2026"</p>
+    </footer>
+
+  </div>
+</body>
 </html>
